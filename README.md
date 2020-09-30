@@ -135,4 +135,11 @@ should be given as a parameter to the main method of the coordinator (see below)
     Where \<outcome\> is the option that this participant has decided is the outcome of the vote, and
 [\<port\>] is the list of participants that were taken into account in settling the vote.
 
-5. Print out the results in a meaningful way.
+5. Send **FINISH** or **RESTART** message to participants based on the voted outcomes.
+    
+    **FINISH** tells the participants that their vote has been received, and the votes do not cause conflict or errors (e.g. ties, different outcomes) they can
+    now shut down.
+
+    **RESTART** tells the participant to get ready for another round of
+    voting. After this has been sent, a new round of voting starts with the coordinator sending out
+    the round details.
